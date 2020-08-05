@@ -127,6 +127,8 @@ int main(void)
         2, 3, 0
     };
 
+    glfwSwapInterval(1);
+
     /* generate index buffer */
     unsigned int idx_buff;
     glGenBuffers(1, &idx_buff);
@@ -139,14 +141,39 @@ int main(void)
     unsigned int shader = CreateShader(source.VertexSrc, source.FragmentSrc);
     glUseProgram(shader);
 
+    int u_id = glGetUniformLocation(shader, "u_Color");
+
+    float red_val[] = {
+        0.0f, 0.0f, 0.0f
+    };
+    int idx = 0;
+    float diff = 0.02f;
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
+        
+
+        glUniform4f(u_id, red_val[0], red_val[1], red_val[2], 1.0f);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
+        if (red_val[idx] > 1.0f) {
+            ++idx;
+            if (idx % 3 == 0) {
+                idx = 0;
+                diff = -0.02f;
+            }
+        }
+        else if (red_val[idx] < 0.0f) {
+            ++idx;
+            if (idx % 3 == 0) {
+                idx = 0;
+                diff = 0.02f;
+            }
+        }
+        red_val[idx] += diff;
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 

@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>Source\vendor;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;Source\vendor;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,6 +151,9 @@
     <ClCompile Include="Source\IndexBuffer.cpp" />
     <ClCompile Include="Source\Renderer.cpp" />
     <ClCompile Include="Source\Shader.cpp" />
+    <ClCompile Include="Source\Tests\Test.cpp" />
+    <ClCompile Include="Source\Tests\TestClearColor.cpp" />
+    <ClCompile Include="Source\Tests\TestTexture2D.cpp" />
     <ClCompile Include="Source\Texture.cpp" />
     <ClCompile Include="Source\vendor\glm\detail\glm.cpp" />
     <ClCompile Include="Source\vendor\imgui\imgui.cpp" />
@@ -164,6 +167,9 @@
     <ClCompile Include="Source\VertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Tests\Test.h" />
+    <ClInclude Include="Source\Tests\TestClearColor.h" />
+    <ClInclude Include="Source\Tests\TestTexture2D.h" />
     <ClInclude Include="Source\Texture.h" />
     <ClInclude Include="Source\IndexBuffer.h" />
     <ClInclude Include="Source\Renderer.h" />
